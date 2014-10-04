@@ -1,7 +1,13 @@
 doctype html
 html
   head
-    title= title
+    title #{title}
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      h1 FileCubby
+    .container
+      .main-content
+        block content
+    footer
+      p Created by Muntaser Ahmed @HackMIT
