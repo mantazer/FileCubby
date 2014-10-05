@@ -4,7 +4,6 @@ block content
     | FileCubby is a platform designed to help you share your files with your friends.
     | It's easy, secure, and ephemeral!
 
-
   ul
     li
       form(method='POST', action='http://localhost:3000/upload', enctype='multipart/form-data')
@@ -15,5 +14,3 @@ block content
       form(method='GET', action='http://localhost:3000/download')
         input(class='input-left text-input' type='text', name='code')
         input(class='input-right' type='submit')
-
-    

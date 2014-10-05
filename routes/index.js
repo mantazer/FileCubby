@@ -2,7 +2,8 @@
 // redis (maintain orig filename)
 // encryption (expensive on client)
 // cron wipe
-
+// ajax integration
+=
 var chance = require('chance').Chance();
 var express = require('express');
 var formidable = require('formidable');
