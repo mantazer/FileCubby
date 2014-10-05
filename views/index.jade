@@ -3,4 +3,13 @@ block content
   p
     | FileCubby is a platform designed to help you share your files with your friends.
     | It's easy, secure, and ephemeral!
+
+  form(method='POST', action='http://localhost:3000/upload', enctype='multipart/form-data')
+    input(type='file', name='file')
+    input(type='submit')
+
+  form(method='GET', action='http://localhost:3000/download')
+    input(type='text', name='code')
+    input(type='submit')
+
     
