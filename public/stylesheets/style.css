@@ -101,9 +101,9 @@ header {
   color: #fff;
   font-size: 25px;
   text-align: center;
-  background-color: #fa5b4d;
-  border-bottom: 1px solid #df1806;
-  text-shadow: 0px -1px 0px #df1806;
+  background-color: #826953;
+  border-bottom: 1px solid #5b4a3a;
+  text-shadow: 0px -1px 0px #5b4a3a;
 }
 .container {
   width: 500px;
@@ -121,8 +121,8 @@ header {
 }
 .input-right {
   float: right;
-  background-color: #fa5b4d;
-  border: 1px solid #df1806;
+  background-color: #826953;
+  border: 1px solid #5b4a3a;
   display: inline-block;
   cursor: pointer;
   color: #fff;
@@ -135,6 +135,13 @@ header {
 .input-left {
   float: left;
 }
+.text-input {
+  display: block;
+  margin-top: 0;
+  width: 50%;
+  font-family: sans-serif;
+  font-size: 19px;
+}
 p {
   line-height: 1.8;
 }
@@ -144,4 +151,5 @@ footer {
   border-top: 1px dotted #ccc;
   padding-top: 5px;
   font-size: 13px;
+  text-align: center;
 }

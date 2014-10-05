@@ -1,3 +1,9 @@
+// todo
+// redis (maintain orig filename)
+// encryption (expensive on client)
+// cron wipe
+
+var chance = require('chance').Chance();
 var express = require('express');
 var formidable = require('formidable');
 var fs = require('fs');
@@ -18,10 +24,12 @@ router.post('/upload', function(req, res) {
     keepExtensions: true
   });
     form.parse(req, function(err, fields, files) {
-      fs.rename(files.file.path, uploadDir + '/' + files.file.name, function(err) {
+      // Use redis to map actual filenames to tags
+      var tag = chance.word({length: 5});
+      fs.rename(files.file.path, uploadDir + '/' + tag, function(err) {
         console.log('Unable to rename file', err);
       });
-      res.send(200);
+      res.send(tag);
       // res.writeHead({'asd': 'asd'});
       // res.write('received upload:\n\n');
       // res.end(util.inspect({fields: fields, files: files}));
