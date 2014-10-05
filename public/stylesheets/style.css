@@ -91,7 +91,7 @@ a img {
   border: none;
 }
 body {
-  font-family: 'Georgia';
+  font-family: 'Quicksand';
   background-color: #faf9f0;
   color: #444;
 }
@@ -112,10 +112,28 @@ header {
 }
 .main-content {
   text-align: center;
-button
 }
 .main-content p {
   margin-bottom: 20px;
+}
+.main-content form {
+  clear: both;
+}
+.input-right {
+  float: right;
+  background-color: #fa5b4d;
+  border: 1px solid #df1806;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-family: Quicksand;
+  font-size: 19px;
+  padding: 7px 34px;
+  text-decoration: none;
+  text-shadow: 0px 0px 50px #2f6627;
+}
+.input-left {
+  float: left;
 }
 p {
   line-height: 1.8;
