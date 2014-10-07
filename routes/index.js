@@ -6,6 +6,7 @@
 // inactive gray upload button until uploaded file
 // handling harmful files
 // check for valid file in /upload
+// strip/format tag input
 
 var chance = require('chance').Chance();
 var express = require('express');
@@ -40,10 +41,11 @@ router.post('/upload', function(req, res) {
     });
 });
 
-router.post('/download', function(req, res) {
+router.get('/download', function(req, res) {
   var tag = req.param('tag');
+  console.log(tag);
   var filePath = path.resolve(__dirname, '../tmp/' + tag);
-  console.log(filePath);
+  console.log('filepath: ' + filePath);
   res.sendFile(filePath);
 });
 

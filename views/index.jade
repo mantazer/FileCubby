@@ -11,9 +11,9 @@ block content
         input(id='upload-button' class='submit-button' type='submit' value='upload')
 
     li
-      //- form(method='GET', action='http://localhost:3000/download')
-      input(id='tag-box' class='input-left' type='text' name='code' placeholder='enter tag here...')
-      input(id='download-button' class='submit-button' type='submit' value='download')
+      form(id='download-form' method='GET' action='http://localhost:3000/download')
+        input(id='tag-box' class='input-left' type='text' name='tag' placeholder='enter tag here...')
+        input(id='download-button' class='submit-button' type='submit' value='download')
 
   script.
     $(document).ready(function() {
@@ -25,23 +25,15 @@ block content
           type: 'POST',
           data: formData,
           success: function(data) {
-            alert('success' + data)
+            alert('success: ' + data)
           },
           error: function(err) {
-            alert('error' + err)
+            alert('error: ' + err)
           },
           cache: false,
           contentType: false,
           processData: false
         })
       })
-
-      $('#download-button').click(function() {
-          $.ajax({
-            url: 'http://localhost:3000/download',
-            type: 'POST',
-            data: {'tag': $('#tag-box').val()},
-          })
-      })
-
+      
     })
