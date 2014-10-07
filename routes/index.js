@@ -1,4 +1,4 @@
-// todo
+// todo:
 // redis (maintain orig filename)
 // encryption (expensive on client)
 // cron wipe
@@ -16,7 +16,6 @@ var path = require('path');
 var util = require('util');
 
 var router = express.Router();
-
 var uploadDir = __dirname + '/../tmp'
 
 router.get('/', function(req, res) {
@@ -29,12 +28,17 @@ router.post('/upload', function(req, res) {
     keepExtensions: true
   });
     form.parse(req, function(err, fields, files) {
-      // Use redis to map actual filenames to tags
+      
+      var hashedName = path.basename(files.file.path);
+      var origName = files.file.name;
       var tag = chance.word({length: 5});
-      fs.rename(files.file.path, uploadDir + '/' + tag, function(err) {
-        console.log('Unable to rename file', err);
-      });
-      res.send(tag);
+      
+      console.log(hashedName);
+      console.log(origName);
+      console.log(tag);
+
+      
+
       // res.writeHead({'asd': 'asd'});
       // res.write('received upload:\n\n');
       // res.end(util.inspect({fields: fields, files: files}));

@@ -6,34 +6,16 @@ block content
 
   ul
     li
-      form(id='upload-form' enctype='multipart/form-data')
-        input(id='choose-button' class='input-left' type='file' name='file')
+      form(id='upload-form' method='POST' action='http://localhost:3000/upload' enctype='multipart/form-data')
+        input(id='file' class='input-left' type='file' name='file')
         input(id='upload-button' class='submit-button' type='submit' value='upload')
 
     li
       form(id='download-form' method='GET' action='http://localhost:3000/download')
-        input(id='tag-box' class='input-left' type='text' name='tag' placeholder='enter tag here...')
+        input(id='tag' class='input-left' type='text' name='tag' placeholder='enter tag here...')
         input(id='download-button' class='submit-button' type='submit' value='download')
 
   script.
     $(document).ready(function() {
 
-      $('#upload-button').click(function() {
-        var formData = new FormData($('upload-form')[0])
-        $.ajax({
-          url: 'http://localhost:3000/upload',
-          type: 'POST',
-          data: formData,
-          success: function(data) {
-            alert('success: ' + data)
-          },
-          error: function(err) {
-            alert('error: ' + err)
-          },
-          cache: false,
-          contentType: false,
-          processData: false
-        })
-      })
-      
     })
