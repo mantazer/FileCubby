@@ -5,6 +5,7 @@
 // ajax integration
 // inactive gray upload button until uploaded file
 // handling harmful files
+// check for valid file in /upload
 
 var chance = require('chance').Chance();
 var express = require('express');
@@ -39,10 +40,9 @@ router.post('/upload', function(req, res) {
     });
 });
 
-router.get('/download', function(req, res) {
-  console.log(req.param('code'));
-  var code = req.param('code');
-  var filePath = path.resolve(__dirname, '../tmp/' + code);
+router.post('/download', function(req, res) {
+  var tag = req.param('tag');
+  var filePath = path.resolve(__dirname, '../tmp/' + tag);
   console.log(filePath);
   res.sendFile(filePath);
 });
