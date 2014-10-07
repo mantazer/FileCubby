@@ -3,7 +3,9 @@
 // encryption (expensive on client)
 // cron wipe
 // ajax integration
-=
+// inactive gray upload button until uploaded file
+// handling harmful files
+
 var chance = require('chance').Chance();
 var express = require('express');
 var formidable = require('formidable');
@@ -44,5 +46,9 @@ router.get('/download', function(req, res) {
   console.log(filePath);
   res.sendFile(filePath);
 });
+
+router.get('/test', function(req, res) {
+  res.send(200);
+})
 
 module.exports = router;
