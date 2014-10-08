@@ -109,6 +109,9 @@ a {
   text-decoration: none;
   color: #f6f6ef;
 }
+#filecub {
+  width: 5%;
+}
 .container {
   width: 500px;
   margin: 50px auto;
