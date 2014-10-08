@@ -91,19 +91,23 @@ a img {
   border: none;
 }
 body {
-  font-family: 'Quicksand';
-  background-color: #faf9f0;
+  font-family: Quicksand;
+  background-color: #f6f6ef;
   color: #444;
 }
 header {
-  font-family: 'Quicksand';
+  font-family: Quicksand;
   padding: 50px 10px;
   color: #fff;
   font-size: 40px;
   text-align: center;
-  background-color: #826953;
-  border-bottom: 1px solid #5b4a3a;
-  text-shadow: 0px -1px 0px #5b4a3a;
+  background-color: #3899de;
+  border-bottom: 1px solid #1c6da7;
+  text-shadow: 0px -1px 0px #1c6da7;
+}
+a {
+  text-decoration: none;
+  color: #f6f6ef;
 }
 .container {
   width: 500px;
@@ -119,22 +123,35 @@ header {
 .main-content form {
   clear: both;
 }
+#file {
+  width: 100%;
+}
+#tag {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  font-family: Quicksand;
+}
 .submit-button {
   float: right;
   width: 100%;
-  background-color: #826953;
-  border: 1px solid #5b4a3a;
+  background-color: #3899de;
+  border: 1px solid #1c6da7;
   display: inline-block;
   cursor: pointer;
-  color: #fff;
+  color: #f6f6ef;
   font-family: Quicksand;
-  font-size: 19px;
+  font-size: 20px;
   padding: 7px 34px;
   text-decoration: none;
   text-shadow: 0px 0px 50px #2f6627;
 }
 .input-left {
   float: left;
+}
+#your-tag {
+  font-size: 50px;
 }
 p {
   line-height: 1.8;

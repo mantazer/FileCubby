@@ -3,16 +3,17 @@
 
 global-reset()
 
-main-color = #826953
-background-color = #faf9f0
+main-color = #3899de
+background-color = #f6f6ef
+
 
 body
-  font-family 'Quicksand'
+  font-family Quicksand
   background-color background-color
   color #444
 
 header
-  font-family 'Quicksand'
+  font-family Quicksand
   padding 50px 10px
   color #fff
   font-size 40px
@@ -21,6 +22,10 @@ header
   background-color main-color
   border-bottom 1px solid darken(main-color, 30%)
   text-shadow 0px -1px 0px darken(main-color, 30%)
+
+a
+  text-decoration none
+  color background-color
 
 .container
   width 500px
@@ -36,22 +41,35 @@ header
   form
     clear both
 
+#file
+  width 100%
+
+#tag
+  width 100%
+  font-size 20px
+  text-align center
+  margin-top 50px
+  font-family Quicksand
+
 .submit-button
   float right
   width 100%
-  background-color #826953
-  border 1px solid #5b4a3a
+  background-color main-color
+  border 1px solid darken(main-color, 30%)
   display inline-block
   cursor pointer
-  color #ffffff
+  color background-color
   font-family Quicksand
-  font-size 19px
+  font-size 20px
   padding 7px 34px
   text-decoration none
   text-shadow 0px 0px 50px #2f6627
 
 .input-left
   float left
+
+#your-tag
+  font-size 50px
 
 p
   line-height 1.8

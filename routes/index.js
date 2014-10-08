@@ -2,7 +2,6 @@
 // redis (maintain orig filename)
 // encryption (expensive on client)
 // cron wipe
-// ajax integration
 // inactive gray upload button until uploaded file
 // handling harmful files
 // check for valid file in /upload
@@ -27,22 +26,22 @@ router.post('/upload', function(req, res) {
     uploadDir: __dirname + '/../tmp',
     keepExtensions: true
   });
-    form.parse(req, function(err, fields, files) {
-      
-      var hashedName = path.basename(files.file.path);
-      var origName = files.file.name;
-      var tag = chance.word({length: 5});
-      
-      console.log(hashedName);
-      console.log(origName);
-      console.log(tag);
+  form.parse(req, function(err, fields, files) {
+    
+    var hashedName = path.basename(files.file.path);
+    var origName = files.file.name;
+    var tag = chance.word({length: 5});
+    
+    console.log(hashedName);
+    console.log(origName);
+    console.log(tag);
 
-      
+    res.render('tag', { tag: tag });
 
-      // res.writeHead({'asd': 'asd'});
-      // res.write('received upload:\n\n');
-      // res.end(util.inspect({fields: fields, files: files}));
-    });
+    // res.writeHead({'asd': 'asd'});
+    // res.write('received upload:\n\n');
+    // res.end(util.inspect({fields: fields, files: files}));
+  });
 });
 
 router.get('/download', function(req, res) {

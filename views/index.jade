@@ -1,8 +1,10 @@
+//- textured maincolor
+
 extends layout
 block content
   p
     | FileCubby is a platform designed to help you share your files with your friends.
-    | It's easy, secure, and ephemeral!
+    | It's quick and ephemeral!
 
   ul
     li
@@ -17,5 +19,15 @@ block content
 
   script.
     $(document).ready(function() {
+      var uploadForm = document.getElementById('upload-form');
+      form.onsubmit = function() {
+        var formData = new FormData(form);
+        formData.append('file', file);
 
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', form.getAttribute('action'), true);
+        xhr.send(formData);
+
+        return false;
+      }
     })
