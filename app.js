@@ -1,3 +1,9 @@
+// todo:
+// redis catch errors
+// cron wipe
+// inactive upload button until file chosen
+// handle bad tags/files
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

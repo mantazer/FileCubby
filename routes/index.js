@@ -1,11 +1,3 @@
-// todo:
-// encryption (expensive on client)
-// cron wipe
-// inactive gray upload button until uploaded file
-// handling harmful files
-// check for valid file in /upload
-// strip/format tag input
-
 var chance = require('chance').Chance();
 var express = require('express');
 var formidable = require('formidable');
@@ -18,7 +10,12 @@ var router = express.Router();
 var uploadDir = __dirname + '/../tmp'
 
 router.get('/', function(req, res) {
-  redis.insertIt('hello', 'meow', 'meow2');
+  redis.setList('key', 'value1', 'value2');
+ 
+  redis.getOrigName('key', function(err, result) {
+    console.log(result);
+  })
+
   res.render('index', { title: 'FileCubby' });
 });
 
@@ -38,10 +35,6 @@ router.post('/upload', function(req, res) {
     console.log(tag);
 
     res.render('tag', { tag: tag });
-
-    // res.writeHead({'asd': 'asd'});
-    // res.write('received upload:\n\n');
-    // res.end(util.inspect({fields: fields, files: files}));
   });
 });
 
