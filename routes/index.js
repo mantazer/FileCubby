@@ -1,5 +1,4 @@
 // todo:
-// redis (maintain orig filename)
 // encryption (expensive on client)
 // cron wipe
 // inactive gray upload button until uploaded file
@@ -12,12 +11,14 @@ var express = require('express');
 var formidable = require('formidable');
 var fs = require('fs');
 var path = require('path');
+var redis = require('../db/redis.js')
 var util = require('util');
 
 var router = express.Router();
 var uploadDir = __dirname + '/../tmp'
 
 router.get('/', function(req, res) {
+  redis.insertIt('hello', 'meow', 'meow2');
   res.render('index', { title: 'FileCubby' });
 });
 
@@ -46,9 +47,7 @@ router.post('/upload', function(req, res) {
 
 router.get('/download', function(req, res) {
   var tag = req.param('tag');
-  console.log(tag);
   var filePath = path.resolve(__dirname, '../tmp/' + tag);
-  console.log('filepath: ' + filePath);
   res.sendFile(filePath);
 });
 

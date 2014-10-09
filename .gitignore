@@ -28,5 +28,9 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-# FileCubby
+# Virtual Environment
 env
+
+# Redis
+*.rdb
+
