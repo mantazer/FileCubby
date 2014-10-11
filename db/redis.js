@@ -7,9 +7,9 @@ exports.setList = function(tag, origName, hashedName) {
   redis.lpush(tag, hashedName, origName);
 }
 
-// exports.removeList = function() {
-
-// }
+exports.delList = function(tag) {
+  redis.del(tag);
+}
 
 exports.getOrigName = function(tag, callback) {
   redis.lindex(tag, 0, function(err, result) {
@@ -21,6 +21,12 @@ exports.getOrigName = function(tag, callback) {
   });
 }
 
-exports.getHashedName = function(tag) {
-  return redis.lindex(tag, 1);
+exports.getHashedName = function(tag, callback) {
+  return redis.lindex(tag, 1, function(err, result) {
+    if (err) {
+      // handle error
+    } else {
+      callback(err, result);
+    }
+  });
 }

@@ -10,12 +10,6 @@ var router = express.Router();
 var uploadDir = __dirname + '/../tmp'
 
 router.get('/', function(req, res) {
-  redis.setList('key', 'value1', 'value2');
- 
-  redis.getOrigName('key', function(err, result) {
-    console.log(result);
-  })
-
   res.render('index', { title: 'FileCubby' });
 });
 
@@ -34,6 +28,7 @@ router.post('/upload', function(req, res) {
     console.log(origName);
     console.log(tag);
 
+    redis.setList(tag, origName, hashedName);
     res.render('tag', { tag: tag });
   });
 });
