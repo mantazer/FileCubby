@@ -35,8 +35,11 @@ router.post('/upload', function(req, res) {
 
 router.get('/download', function(req, res) {
   var tag = req.param('tag');
-  var filePath = path.resolve(__dirname, '../tmp/' + tag);
-  res.sendFile(filePath);
+  redis.getHashedName(tag, function(err, result) {
+    var hashedName = result;
+    var filePath = path.resolve(__dirname, '../tmp/' + hashedName);
+    res.sendFile(filePath);
+  });
 });
 
 router.get('/test', function(req, res) {

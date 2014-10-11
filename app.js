@@ -3,6 +3,7 @@
 // cron wipe
 // inactive upload button until file chosen
 // handle bad tags/files
+// responsive design
 
 var express = require('express');
 var path = require('path');
