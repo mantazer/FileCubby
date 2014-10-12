@@ -35,10 +35,19 @@ router.post('/upload', function(req, res) {
 
 router.get('/download', function(req, res) {
   var tag = req.param('tag');
+
   redis.getHashedName(tag, function(err, result) {
     var hashedName = result;
     var filePath = path.resolve(__dirname, '../tmp/' + hashedName);
-    res.sendFile(filePath);
+
+    redis.getOrigName(tag, function(err, result) {
+      var origName = result;
+      res.set({
+        "Content-Disposition": 'attachment; filename="'+origName+'"'
+      })
+      res.sendFile(filePath);
+    });
+
   });
 });
 
