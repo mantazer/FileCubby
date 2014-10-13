@@ -23,10 +23,6 @@ router.post('/upload', function(req, res) {
     var hashedName = path.basename(files.file.path);
     var origName = files.file.name;
     var tag = chance.word({length: 5});
-    
-    console.log(hashedName);
-    console.log(origName);
-    console.log(tag);
 
     redis.setList(tag, origName, hashedName);
     res.render('tag', { tag: tag });
