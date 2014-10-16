@@ -3,7 +3,7 @@ var express = require('express');
 var formidable = require('formidable');
 var fs = require('fs');
 var path = require('path');
-var redis = require('../db/redis.js')
+var redis = require('../db/redis.js');
 var util = require('util');
 
 var router = express.Router();
