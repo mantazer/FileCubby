@@ -1,7 +1,6 @@
 // todo:
 // redis catch errors
 // cron wipe
-// inactive upload button until file chosen
 // handle bad tags/files
 // responsive design
 
