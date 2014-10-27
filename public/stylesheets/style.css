@@ -97,7 +97,7 @@ body {
 }
 header {
   font-family: Quicksand;
-  padding: 50px 10px;
+  padding: 30px 10px;
   color: #fff;
   font-size: 40px;
   text-align: center;
@@ -121,7 +121,7 @@ a {
   color: #000;
 }
 #filecub {
-  width: 5%;
+  width: 6%;
 }
 .container {
   width: 500px;
@@ -149,6 +149,7 @@ a {
 }
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
+  margin-bottom: 10px;
 }
 .custom-file-input::before {
   content: 'select';

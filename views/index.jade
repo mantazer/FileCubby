@@ -2,7 +2,7 @@ extends layout
 block content
   p
     | FileCubby is a service designed to help you share your files.
-    | Just upload your file, and distribute the tag so others can download!
+    | Just upload your file, and distribute the five-letter tag so others can download!
 
   ul
     li
@@ -40,7 +40,7 @@ block content
       //- Download button handler
       tag.onkeyup = function() {
         var tagVal = document.getElementById('tag').value;
-        if (tagVal.length == 0 || tagVal.length < 6) {
+        if (tagVal.length == 0 || tagVal.length < 5) {
           deactivateDownload();
         }
         else {
@@ -63,7 +63,7 @@ block content
 
       function deactivateUpload() {
         uploadButton.disabled = true;
-        uploadButton.style.opacity = 0.4;
+        uploadButton.style.opacity = 0.5;
       }
 
       function activateUpload() {
@@ -73,7 +73,7 @@ block content
 
       function deactivateDownload() {
         downloadButton.disabled = true;
-        downloadButton.style.opacity = 0.4;
+        downloadButton.style.opacity = 0.5;
       }
 
       function activateDownload() {
