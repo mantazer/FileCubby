@@ -159,8 +159,8 @@ a {
   background: -webkit--ms-linear-gradient(top, #f9f9f9, #e3e3e3);
   background: -webkit-linear-gradient(to bottom, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
   padding: 5px 8px;
   outline: none;
   white-space: nowrap;
