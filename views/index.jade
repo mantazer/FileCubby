@@ -1,5 +1,3 @@
-//- textured maincolor
-
 extends layout
 block content
   p
@@ -19,19 +17,36 @@ block content
 
   script.
     $(document).ready(function() {
-      var uploadForm = document.getElementById('upload-form');
       
-      deactivateSubmit();
+      var uploadForm = document.getElementById('upload-form');
+      var uploadButton = document.getElementById('upload-button')
+      var downloadButton = document.getElementById('download-button');
+      var tag = document.getElementById('tag');
 
+      deactivateUpload();
+      deactivateDownload();
+
+      //- Upload button handler
       $('#file').change(function() {
         var fileVal = document.getElementById('file').value;
         if (fileVal) {
-          activateSubmit();
+          activateUpload();
         }
         else { 
-          deactivateSubmit(); 
+          deactivateUpload();
         }
       });
+
+      //- Download button handler
+      tag.onkeyup = function() {
+        var tagVal = document.getElementById('tag').value;
+        if (tagVal.length == 0 || tagVal.length < 6) {
+          deactivateDownload();
+        }
+        else {
+          activateDownload();
+        }
+      }
 
       form.onsubmit = sendFile();
 
@@ -46,14 +61,24 @@ block content
         return false;
       }
 
-      function deactivateSubmit() {
-        document.getElementById('upload-button').disabled = true;        
-        //- gray out button
+      function deactivateUpload() {
+        uploadButton.disabled = true;
+        uploadButton.style.opacity = 0.4;
       }
 
-      function activateSubmit() {
-        document.getElementById('upload-button').disabled = false;
-        //- restore color
+      function activateUpload() {
+        uploadButton.disabled = false;
+        uploadButton.style.opacity = 1;
+      }
+
+      function deactivateDownload() {
+        downloadButton.disabled = true;
+        downloadButton.style.opacity = 0.4;
+      }
+
+      function activateDownload() {
+        downloadButton.disabled = false;
+        downloadButton.style.opacity = 1;
       }
 
     });
