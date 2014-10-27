@@ -3,7 +3,7 @@
 extends layout
 block content
   p
-    | FileCubby is a platform designed to help you share your files.
+    | FileCubby is a service designed to help you share your files.
     | Just upload your file, and distribute the tag so others can download!
 
   ul
@@ -20,7 +20,22 @@ block content
   script.
     $(document).ready(function() {
       var uploadForm = document.getElementById('upload-form');
-      form.onsubmit = function() {
+      
+      deactivateSubmit();
+
+      $('#file').change(function() {
+        var fileVal = document.getElementById('file').value;
+        if (fileVal) {
+          activateSubmit();
+        }
+        else { 
+          deactivateSubmit(); 
+        }
+      });
+
+      form.onsubmit = sendFile();
+
+      function sendFile() {
         var formData = new FormData(form);
         formData.append('file', file);
 
@@ -30,4 +45,15 @@ block content
 
         return false;
       }
-    })
+
+      function deactivateSubmit() {
+        document.getElementById('upload-button').disabled = true;        
+        //- gray out button
+      }
+
+      function activateSubmit() {
+        document.getElementById('upload-button').disabled = false;
+        //- restore color
+      }
+
+    });
