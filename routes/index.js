@@ -49,7 +49,7 @@ router.get('/download', function(req, res) {
 
     } else {
       console.log('bad tag');
-      // render jade file
+      res.render('invalidtag')
     }
 
   });
