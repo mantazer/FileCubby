@@ -34,15 +34,23 @@ router.get('/download', function(req, res) {
 
   redis.getHashedName(tag, function(err, result) {
     var hashedName = result;
-    var filePath = path.resolve(__dirname, '../tmp/' + hashedName);
 
-    redis.getOrigName(tag, function(err, result) {
-      var origName = result;
-      res.set({
-        "Content-Disposition": 'attachment; filename="'+origName+'"'
-      })
-      res.sendFile(filePath);
-    });
+    if (hashedName) {
+
+      var filePath = path.resolve(__dirname, '../tmp/' + hashedName);
+
+      redis.getOrigName(tag, function(err, result) {
+        var origName = result;
+        res.set({
+          "Content-Disposition": 'attachment; filename="'+origName+'"'
+        })
+        res.sendFile(filePath);
+      });
+
+    } else {
+      console.log('bad tag');
+      // render jade file
+    }
 
   });
 });
