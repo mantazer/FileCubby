@@ -3,6 +3,7 @@
 // cron wipe
 // handle bad tags/files
 // responsive design
+// clean up stylesheet
 
 var express = require('express');
 var path = require('path');
