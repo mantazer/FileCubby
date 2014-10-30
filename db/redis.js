@@ -1,4 +1,4 @@
-// Redis Structure:
+// Structure:
 // [tag] [origName] [hashedName]
 
 var redis = require('redis').createClient();

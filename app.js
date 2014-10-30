@@ -1,7 +1,6 @@
 // todo:
-// redis catch errors
-// cron wipe
-// handle bad tags/files
+// cron wipe tmp and db
+// handle bad files
 // responsive design
 // clean up stylesheet
 
